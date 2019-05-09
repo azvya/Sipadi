@@ -1,0 +1,138 @@
+@font-face {
+    src: url('../fonts/soft-elegance.ttf');
+    font-family: 'soft-elegance';
+}
+
+@font-face {
+    src: url('../fonts/lgc.ttf');
+    font-family: 'lgc';
+}
+
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+    }
+}
+
+@media (min-width: 54em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 68em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@keyframes card {
+    0% {
+        left: -5%;
+        opacity: 0;
+    }
+    100% {
+        left: 0%;
+        opacity: 1;
+    }
+}
+
+.text-kecil {
+    font-size: 26px;
+}
+
+.changelog {
+    height: 312px;
+    overflow: scroll;
+}
+
+.card {
+    animation: card 0.5s ease-out;
+}
+
+.anim {
+    animation: card 0.5s ease-out;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'lgc', sans-serif;
+    margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+h1, h2, h3, h4, h5, h6, a {
+    font-family: 'soft-elegance', sans-serif;
+}
+
+.judul {
+    font-size: 25px;
+    margin-left: 0px ;
+}
+
+.main-logo {
+    width: 75%;
+    max-width: 400px;
+}
+
+.navbar {
+    border-bottom: 1px solid rgb(219, 214, 214);
+}
+
+.bg-bottom {
+    background-color: #6c757d69;
+}
+
+.cari {
+    max-width: 700px;
+}
+
+.tombol-cari {
+    min-width: 100px;
+}
+
+.top-login-form {
+    max-width: 350px;
+    min-width: 300px;
+    width: 80%;
+}
+
+.login-form {
+    max-width: 350px;
+    min-width: 300px;
+    width: 80%;
+}
+
+.tambah-buku {
+    max-width: 600px;
+    min-width: 300px;
+    width: 80%;
+}
+
+.foto-upload {
+    padding: 2.875px 0 2.875px 0;
+}
+
+.border-radius {
+    border-radius: 32px;
+}
+
+.btn-white {color:#212529;background-color:#ffffff;border-color:#ced4da} 
+
+.footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+height: 36px; /* Set the fixed height of the footer here */
+line-height: 36px; /* Vertically center the text there */
+background-color: #f5f5f5;
+}

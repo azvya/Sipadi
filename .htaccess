@@ -1,0 +1,15 @@
+#Error handling
+ErrorDocument 404 /functions/error/error-404.html
+ErrorDocument 500 /functions/error/error-404.html
+
+# Redirect agar tidak dapat masuk ke halaman
+Redirect 301 /functions/index.html   /
+Redirect 301 /functions/error/index.html /
+Redirect 301 /functions/functions.php /
+Redirect 301 /assets/css/index.html /
+Redirect 301 /assets/fonts/index.html /
+Redirect 301 /assets/icon/index.html /
+Redirect 301 /assets/img/index.html /
+Redirect 301 /assets/js/index.html /
+Redirect 301 /assets/video/index.html /
+Redirect 301 /all/index.html /all/login.php
