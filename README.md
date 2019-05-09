@@ -39,7 +39,6 @@ Log Perubahan:
                         <li class="list-group-item">Registrasi username dan password menggunakan ajax</li>
                         <li class="list-group-item">Registrasi memperlukan verifikasi ke admin</li>
                         <li class="list-group-item">Notifikasi ke admin aktif</li>
-                        <li class="list-group-item"></li>
                     </ul>
                     <ul class="list-group list-group-flush mt-2 text-left">
                     <span class='bg-warning'>Pre-alpha 0.2.2 :</span>
