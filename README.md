@@ -86,8 +86,6 @@ Log Perubahan:
                         <li class="list-group-item">Navbar bootstrap yang dipanggil melalui fungsi php</li>
                         <li class="list-group-item">Footer yang dipanggil melalui fungsi php</li>
                     </ul>
-   
-===================
 English Version
 ===================
 University Project for Web Programming course, about to implements sql, php, css, html, and javascript to a web application for digital library.
