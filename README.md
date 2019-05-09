@@ -1,5 +1,9 @@
 # Si Padi
 University Project for Web Programming course, about to implements sql, php, css, html, and javascript to a web application for digital library.
+
+This project goal is to create a fully functional web application to search, add, remove books and writers, storing books, and request to borrow books.
+
+Changelog
 Pre Alpha 0.3.0
 - Bug fix (8), the number of pages does not match the number of entities displayed
 - Bug fixes (9), line numbers do not match the number of entities displayed
