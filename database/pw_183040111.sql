@@ -36,7 +36,7 @@ CREATE TABLE `buku` (
   `isbn` char(13) NOT NULL,
   `foto_buku` char(128) NOT NULL,
   `deskripsi` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `buku`
@@ -80,7 +80,7 @@ INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_pengarang`, `tahun_terbit`, `is
 CREATE TABLE `ketersediaan` (
   `id_buku` char(5) NOT NULL,
   `stok` int(11) UNSIGNED DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `ketersediaan`
@@ -127,7 +127,7 @@ CREATE TABLE `notifikasi` (
   `id_pengirim` char(16) NOT NULL,
   `tipe_notif` int(1) NOT NULL,
   `id_buku` char(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `notifikasi`
@@ -148,7 +148,7 @@ CREATE TABLE `pengarang` (
   `id_pengarang` char(4) NOT NULL,
   `nama_pengarang` varchar(45) NOT NULL,
   `kategori_pengarang` enum('Nasional','Internasional') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pengarang`
@@ -178,7 +178,7 @@ INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`, `kategori_pengarang`)
 CREATE TABLE `pesan` (
   `alias` char(16) NOT NULL,
   `pesan` varchar(141) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -191,9 +191,9 @@ CREATE TABLE `user` (
   `password` varchar(256) NOT NULL,
   `nama_user` varchar(32) NOT NULL,
   `tipe` int(1) NOT NULL,
-  `email` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_konfirmasi` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`

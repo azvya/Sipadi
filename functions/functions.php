@@ -1,8 +1,8 @@
 <?php 
 // Koneksi MY SQL
     $host = 'localhost';
-    $username = 'admin';
-    $pass = 'admin';
+    $username = 'root';
+    $pass = '';
     $nama_db = 'pw_183040111';
     $version = "pre-alpha 0.3.0";
 
@@ -26,7 +26,7 @@ function query($sql) {
 function enkripsi_password($string) {
     $data = hash('sha1', $string) . hash('md5', $string);
     $data .= hash('sha256', $data);
-
+    //$data = $string;
     return $data;
 }
 
