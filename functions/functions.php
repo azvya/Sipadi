@@ -1,9 +1,9 @@
 <?php 
 // Koneksi MY SQL
-    $host = 'localhost';
-    $username = 'dba-sipadi';
-    $pass = 'BZ!9vYbJr@BaWtxJ';
-    $nama_db = 'pw_183040111';
+    $host = 'localhost:3306';
+    $username = 'erstevnc_dba_sipadi';
+    $pass = '~Df{JoT24.ek';
+    $nama_db = 'erstevnc_pw_183040111';
     $version = "pre-alpha 0.3.0";
 
     $conn = @mysqli_connect($host, $username, $pass) or header("Location: ../../functions/error/error-server.html");
