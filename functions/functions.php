@@ -1,6 +1,6 @@
 <?php 
 // Koneksi MY SQL
-    $host = 'localhost:3306';
+    $host = '103.129.223.254';
     $username = 'erstevnc_dba_sipadi';
     $pass = '~Df{JoT24.ek';
     $nama_db = 'erstevnc_pw_183040111';
