@@ -37,6 +37,7 @@ require 'functions/functions.php';
       });
     });    
   </script>
+  <!-- Percobaan -->
 </head>
 <body>
   <!-- navbar -->
