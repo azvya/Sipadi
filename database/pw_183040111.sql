@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: May 09, 2019 at 07:51 AM
--- Server version: 8.0.15
--- PHP Version: 7.2.11
+-- Host: localhost:3306
+-- Waktu pembuatan: 20 Jun 2021 pada 08.46
+-- Versi server: 5.7.34
+-- Versi PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,21 +24,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
-  `id_buku` char(5) NOT NULL,
-  `judul_buku` varchar(45) NOT NULL,
-  `id_pengarang` char(4) NOT NULL,
+  `id_buku` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `judul_buku` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_pengarang` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tahun_terbit` int(4) NOT NULL,
-  `isbn` char(13) NOT NULL,
-  `foto_buku` char(128) NOT NULL,
-  `deskripsi` text
+  `isbn` char(13) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto_buku` char(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deskripsi` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_pengarang`, `tahun_terbit`, `isbn`, `foto_buku`, `deskripsi`) VALUES
@@ -74,16 +73,16 @@ INSERT INTO `buku` (`id_buku`, `judul_buku`, `id_pengarang`, `tahun_terbit`, `is
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ketersediaan`
+-- Struktur dari tabel `ketersediaan`
 --
 
 CREATE TABLE `ketersediaan` (
-  `id_buku` char(5) NOT NULL,
+  `id_buku` char(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   `stok` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `ketersediaan`
+-- Dumping data untuk tabel `ketersediaan`
 --
 
 INSERT INTO `ketersediaan` (`id_buku`, `stok`) VALUES
@@ -118,40 +117,31 @@ INSERT INTO `ketersediaan` (`id_buku`, `stok`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notifikasi`
+-- Struktur dari tabel `notifikasi`
 --
 
 CREATE TABLE `notifikasi` (
   `waktu` timestamp NULL DEFAULT NULL,
-  `id_penerima` char(16) NOT NULL,
-  `id_pengirim` char(16) NOT NULL,
+  `id_penerima` char(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_pengirim` char(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipe_notif` int(1) NOT NULL,
-  `id_buku` char(5) DEFAULT NULL
+  `id_buku` char(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `notifikasi`
---
-
-INSERT INTO `notifikasi` (`waktu`, `id_penerima`, `id_pengirim`, `tipe_notif`, `id_buku`) VALUES
-('2019-05-08 01:17:54', 'admin', 'jilanrana', 0, NULL),
-('2019-05-08 01:18:18', 'admin', 'irmanmegan', 0, NULL),
-('2019-05-08 01:21:27', 'admin', 'tiasoleha', 0, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengarang`
+-- Struktur dari tabel `pengarang`
 --
 
 CREATE TABLE `pengarang` (
-  `id_pengarang` char(4) NOT NULL,
-  `nama_pengarang` varchar(45) NOT NULL,
-  `kategori_pengarang` enum('Nasional','Internasional') NOT NULL
+  `id_pengarang` char(4) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_pengarang` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori_pengarang` enum('Nasional','Internasional') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pengarang`
+-- Dumping data untuk tabel `pengarang`
 --
 
 INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`, `kategori_pengarang`) VALUES
@@ -172,46 +162,42 @@ INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`, `kategori_pengarang`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesan`
+-- Struktur dari tabel `pesan`
 --
 
 CREATE TABLE `pesan` (
-  `alias` char(16) NOT NULL,
-  `pesan` varchar(141) NOT NULL
+  `alias` char(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pesan` varchar(141) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
-  `username` char(16) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `nama_user` varchar(32) NOT NULL,
+  `username` char(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_user` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tipe` int(1) NOT NULL,
-  `email` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status_konfirmasi` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`username`, `password`, `nama_user`, `tipe`, `email`, `status_konfirmasi`) VALUES
-('admin', 'f865b53623b121fd34ee5426c792e5c33af8c2270192023a7bbd73250516f069df18b500facdf2bd7a61075dc04def97e6d36f30ff4b8de017dd36230405dfdc9f00e92f', 'Administrator', 2, 'admin@sipadi.org', 1),
-('azvya.id', 'b736cda9ea84ad2cd685acdbaf687b37d374795f01a5f5db2d97bd6b389e7a20bd8897084febdb82628264973071afca746ae0613d794e6ba5d10db7f713ec4f98fc5656', 'Azvya Erstevan Imbaloputra', 0, 'azvya@supermail.com', 1),
-('irmanmegan', '7c4a8d09ca3762af61e59520943dc26494f8941be10adc3949ba59abbe56e057f20f883e87c7fb7c4b6f3bc7bcbdb56b186d0c3da4db2249fe936e65cacd03698d38cae0', 'Irman Megantara', 0, 'irmanmegan@mail.com', 0),
-('jilanrana', '7c4a8d09ca3762af61e59520943dc26494f8941be10adc3949ba59abbe56e057f20f883e87c7fb7c4b6f3bc7bcbdb56b186d0c3da4db2249fe936e65cacd03698d38cae0', 'Jilan Rana', 0, 'jilanrana@gmail.com', 0),
-('tiasoleha', '7c4a8d09ca3762af61e59520943dc26494f8941be10adc3949ba59abbe56e057f20f883e87c7fb7c4b6f3bc7bcbdb56b186d0c3da4db2249fe936e65cacd03698d38cae0', 'Tia Soleha', 0, 'tiasoleha@itenas.ac.id', 0);
+('admin', 'f865b53623b121fd34ee5426c792e5c33af8c2270192023a7bbd73250516f069df18b500facdf2bd7a61075dc04def97e6d36f30ff4b8de017dd36230405dfdc9f00e92f', 'Administrator', 0, 'admin@sipadi.com', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id_buku`),
@@ -219,13 +205,13 @@ ALTER TABLE `buku`
   ADD KEY `buku_pengarang_idx` (`id_pengarang`);
 
 --
--- Indexes for table `ketersediaan`
+-- Indeks untuk tabel `ketersediaan`
 --
 ALTER TABLE `ketersediaan`
   ADD UNIQUE KEY `id_buku_UNIQUE` (`id_buku`);
 
 --
--- Indexes for table `notifikasi`
+-- Indeks untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
   ADD KEY `id-penerima_idx` (`id_penerima`),
@@ -233,14 +219,14 @@ ALTER TABLE `notifikasi`
   ADD KEY `id_pengirim_idx` (`id_pengirim`);
 
 --
--- Indexes for table `pengarang`
+-- Indeks untuk tabel `pengarang`
 --
 ALTER TABLE `pengarang`
   ADD PRIMARY KEY (`id_pengarang`),
   ADD UNIQUE KEY `nama_pengarang_UNIQUE` (`nama_pengarang`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`),
@@ -248,28 +234,28 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email_UNIQUE` (`email`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `buku`
+-- Ketidakleluasaan untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD CONSTRAINT `buku_pengarang` FOREIGN KEY (`id_pengarang`) REFERENCES `pengarang` (`id_pengarang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `ketersediaan`
+-- Ketidakleluasaan untuk tabel `ketersediaan`
 --
 ALTER TABLE `ketersediaan`
   ADD CONSTRAINT `buku_stok` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `notifikasi`
+-- Ketidakleluasaan untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  ADD CONSTRAINT `id-penerima` FOREIGN KEY (`id_penerima`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `id_buku` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`),
-  ADD CONSTRAINT `id_pengirim` FOREIGN KEY (`id_pengirim`) REFERENCES `user` (`username`);
+  ADD CONSTRAINT `id-penerima` FOREIGN KEY (`id_penerima`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_buku` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `id_pengirim` FOREIGN KEY (`id_pengirim`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

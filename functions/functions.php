@@ -1,8 +1,8 @@
 <?php 
 // Koneksi MY SQL
     $host = 'localhost';
-    $username = 'root';
-    $pass = '';
+    $username = 'dba-sipadi';
+    $pass = 'BZ!9vYbJr@BaWtxJ';
     $nama_db = 'pw_183040111';
     $version = "pre-alpha 0.3.0";
 
