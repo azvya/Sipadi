@@ -1,9 +1,9 @@
 <?php 
 // Koneksi MY SQL
-    $host = '103.129.223.254';
-    $username = 'erstevnc_dba_sipadi';
-    $pass = '~Df{JoT24.ek';
-    $nama_db = 'erstevnc_pw_183040111';
+    $host = 'sipadi-db-1';
+    $username = 'root';
+    $pass = 'root';
+    $nama_db = 'pw_183040111';
     $version = "pre-alpha 0.3.0";
 
     $conn = @mysqli_connect($host, $username, $pass) or header("Location: ../../functions/error/error-server.html");
@@ -52,7 +52,7 @@ function union($array1, $array2) {
 
 // jadikan string yang diinput menjadi huruf kecil dan tanpa garis di atas tulisan
 function lowercase_hapus_curek($str,$encoding="UTF-8") {
-    $str = preg_replace('/&([^;])[^;]*;/',"$1",htmlentities(mb_strtolower($str,$encoding),null,$encoding));
+    $str = preg_replace('/&([^;])[^;]*;/',"$1",htmlentities(mb_strtolower($str,$encoding),encoding:$encoding));
     return $str;
 }
 

@@ -1,0 +1,4 @@
+*.ini
+!php.ini
+logs/*
+!logs/.keepme

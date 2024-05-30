@@ -1,0 +1,65 @@
+name: sipadi
+services:
+  web:
+    image: nginx:1.22
+    restart: always
+    ports:
+      - 9001:80
+    volumes:
+      - ./:/var/www:rw
+      - ./docker/nginx/config/local.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+    networks:
+      - codignet
+  app:
+    image: ghcr.io/pilihjurusan/codeigniter-3:latest
+    restart: always
+    build:
+      context: ./docker/php/build
+      dockerfile: Dockerfile
+      args:
+        GID: "${GID}"
+        NODE_VERSION: 20
+    working_dir: /var/www
+    environment:
+      UID: "${UID}"
+    volumes:
+      - ./:/var/www:rw
+      - ./docker/php/config/extensions.ini:/usr/local/etc/php/conf.d/extensions.ini:ro
+      - exclude:/var/www/docker:ro
+    depends_on:
+      - db
+    networks:
+      - codignet
+  db:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3316:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sipadi
+    volumes:
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+      - mysqlvol:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d # place to dump sql
+    networks:
+      - codignet
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 9002:80
+    environment:
+      - PMA_PORT=3306
+      - PMA_HOST=db
+    networks:
+      - codignet
+
+networks:
+  codignet:
+    driver: bridge
+volumes:
+  mysqlvol:
+  exclude:

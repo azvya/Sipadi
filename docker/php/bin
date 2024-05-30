@@ -1,0 +1,4 @@
+path=$(printf '%s\n' "${PWD##*/}")
+command="docker compose exec -ti -u $(id -u):$(id -g) app php "$@""
+echo "Running php on docker"
+$command
